@@ -30,7 +30,7 @@
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                 <!-- Image -->
                 <div class="relative">
-                    <img src="{{ $bh->$room->image }}" alt="{{ $bh->name }}" class="w-full h-72 md:h-96 object-cover">
+                    <img src="{{ $bh->image }}" alt="{{ $bh->name }}" class="w-full h-72 md:h-96 object-cover">
                     <div class="p-4">
                         <h1 class="text-3xl font-bold text-black mb-4">{{ $bh->name }}</h1>
                 </div>
