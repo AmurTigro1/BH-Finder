@@ -10,8 +10,7 @@
 
 </head>
 <body class=" text-gray-300 font-poppins">
-    @include('header')
-
+    @include('admin.header')
 
 
     <div class="content">

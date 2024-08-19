@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.admin')
 
 @section('title', 'FindBoard')
 
@@ -11,7 +11,7 @@
             <div class="flex flex-col md:flex-row justify-center md:justify-start items-center space-y-4 md:space-y-0 md:space-x-4">
                 <form class="flex items-center space-x-4" action="{{ route('bh.home') }}" method="GET">
                     <input type="text" placeholder="Search by location" class=" border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" name="search" value="{{ request()->query('search') }}">
-                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Search</button>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4 rounded">Search</button>
                 </form>
                 <form class="flex items-center space-x-2" action="{{ url()->current() }}" method="GET">
                     <label for="address" class="text-black">Filter by Address:</label>

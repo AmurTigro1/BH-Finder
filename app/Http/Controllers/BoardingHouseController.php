@@ -6,7 +6,8 @@ use App\Models\BoardingHouse;
 use Illuminate\Http\Request;
 
 class BoardingHouseController extends Controller
-{
+{ 
+    //First UI makita sa user nig open sa website
     public function index(Request $request)
     {
         $bh = BoardingHouse::orderBy('created_at', 'DESC')->get();
@@ -29,20 +30,9 @@ class BoardingHouseController extends Controller
 
         $bh = $bh->simplePaginate(3);
 
-        return view('welcome', compact('bh'));
+        return view('userView.homepage', compact('bh'));
  }
  
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('products.create');
-    }
- 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -57,31 +47,13 @@ class BoardingHouseController extends Controller
         return redirect()->route('bh.show', $bh->id);
     }
 
- 
-    /**
-     * Display the specified resource.
-     */
-    // public function show(string $id)
-    // {
-    //     $product = Product::findOrFail($id);
- 
-    //     return view('products.show', compact('product'));
-    // }
+    //Visit para mo tan-aw sa boarding house
     public function show($id)
     {
         $bh = BoardingHouse::findOrFail($id);
         return view('boardingHouse.show', compact('bh'));
     }
  
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $product = Product::findOrFail($id);
- 
-        return view('products.edit', compact('product'));
-    }
     public function all(Request $request)
     {
         $search = $request->query('search');
@@ -98,38 +70,12 @@ class BoardingHouseController extends Controller
         }
     
         if ($address) {
-            $bh->where('address', 'LIKE', "%{$address}%"); // use LIKE to allow partial matches
+            $bh->where('address', 'LIKE', "%{$address}%");
         }
     
-        // $bh = $bh->simplePaginate(4);
         $bh = $bh->paginate(4);
     
-        return view('boardingHouse.landing', compact('bh', 'address')); // pass $address to the view as well
+        return view('boardingHouse.landing', compact('bh', 'address'));
     }
 
-    
- 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        $product = Product::findOrFail($id);
- 
-        $product->update($request->all());
- 
-        return redirect()->route('admin/products')->with('success', 'product updated successfully');
-    }
- 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $product = Product::findOrFail($id);
- 
-        $product->delete();
- 
-        return redirect()->route('admin/products')->with('success', 'product deleted successfully');
-    }
 }

@@ -14,4 +14,10 @@ class BoardingHouse extends Model
         'image',
         'monthly',
     ];
+
+
+    public function room()
+    {
+        return $this->hasMany(Room::class);
+    }
 }
