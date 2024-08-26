@@ -24,29 +24,28 @@
         <button type="submit" class="mt-4 bg-blue-500 text-black py-2 px-4 rounded">Submit</button>
     </form>
      --}}
-
      <section class="py-16 px-4 bg-gray-50">
         <div class="container mx-auto">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden"> 
                 <!-- Image -->
-                <div class="relative">
-                    <img src="{{ $bh->image }}" alt="{{ $bh->name }}" class="w-full h-72 md:h-96 object-cover">
-                    <div class="p-4">
-                        <h1 class="text-3xl font-bold text-black mb-4">{{ $bh->name }}</h1>
-                </div>
-    
-                <!-- Content -->
-                <div class="p-6">
-                    <p class="text-lg text-gray-700 mb-2"><strong>Address:</strong> {{ $bh->address }}</p>
-                    <p class="text-xl text-blue-600 mb-6 font-semibold">Monthly Rent: ₱{{ $bh->monthly }}</p>
-    
-                    <!-- Google Map Display -->
+                    <div class="flex items-center bg-white rounded-lg shadow-md overflow-hidden">
+                        <!-- Image -->
+                        <img src="{{ $bh->image }}" alt="{{ $bh->name }}" class="w-[200px] md:w-[300px] h-auto object-contain border-r-2 border-gray-200">
+                        
+                        <!-- Content -->
+                        <div class="p-4">
+                            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">{{ $bh->name }}</h1>
+                            <p class="text-lg text-gray-700 mb-2"><strong>Address:</strong> {{ $bh->address }}</p>
+                            <p class="text-xl text-blue-600 mb-6 font-semibold">Monthly Rent: ₱{{ $bh->monthly }}</p>
+                        </div>
+                    </div>
+                <!-- Google Map Display -->
                     <div id="map" class="rounded-md overflow-hidden mb-6" style="height: 400px; width: 100%;"></div>
     
                     <!-- Action Buttons -->
                     <div class="flex justify-start space-x-4">
                         <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-all duration-200">Back to Listings</a>
-                        <a href="{{ route('account.login', $bh->id) }}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-all duration-200">Reserve</a>
+                        <a href="{{ route('room.show', $bh->id) }}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-all duration-200">View Rooms</a>
                     </div>
                 </div>
             </div>

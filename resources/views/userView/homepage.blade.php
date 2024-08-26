@@ -48,6 +48,7 @@
                         <h4 class="text-lg sm:text-xl font-bold text-black mb-2">{{$bh->name}}</h4>
                         <p class="text-black">{{$bh->address}}</p>
                         <a href="{{ route('bh.show', $bh->id) }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 block text-center">Visit</a>
+                       
                     </div>
                 </div>
             @empty

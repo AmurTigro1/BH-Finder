@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BoardingHouse;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class BoardingHouseController extends Controller
@@ -48,6 +49,12 @@ class BoardingHouseController extends Controller
     }
 
     //Visit para mo tan-aw sa boarding house
+    // public function show($id)
+    // {
+    //     $room = Room::findOrFail($id);
+    //     return view('boardingHouse.show', compact('room'));
+    // }
+
     public function show($id)
     {
         $bh = BoardingHouse::findOrFail($id);
