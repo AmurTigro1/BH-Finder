@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PropertyList;
 use App\Models\BoardingHouse;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class BoardingHouseController extends Controller
                     ->orWhere('name', 'LIKE', "%{$search}%")
                     ->orWhere('monthly', 'LIKE', "%{$search}%");
             });
-    }
+        }
 
         if ($address) {
             $bh->where('address', $address);
@@ -30,7 +31,7 @@ class BoardingHouseController extends Controller
         $bh = $bh->simplePaginate(3);
 
         return view('welcome', compact('bh'));
- }
+    }
  
     /**
      * Show the form for creating a new resource.
@@ -57,16 +58,9 @@ class BoardingHouseController extends Controller
         return redirect()->route('bh.show', $bh->id);
     }
 
- 
     /**
      * Display the specified resource.
      */
-    // public function show(string $id)
-    // {
-    //     $product = Product::findOrFail($id);
- 
-    //     return view('products.show', compact('product'));
-    // }
     public function show($id)
     {
         $bh = BoardingHouse::findOrFail($id);
@@ -82,6 +76,7 @@ class BoardingHouseController extends Controller
  
         return view('products.edit', compact('product'));
     }
+
     public function all(Request $request)
     {
         $search = $request->query('search');
@@ -98,17 +93,14 @@ class BoardingHouseController extends Controller
         }
     
         if ($address) {
-            $bh->where('address', 'LIKE', "%{$address}%"); // use LIKE to allow partial matches
+            $bh->where('address', 'LIKE', "%{$address}%");
         }
     
-        // $bh = $bh->simplePaginate(4);
         $bh = $bh->paginate(4);
     
-        return view('boardingHouse.landing', compact('bh', 'address')); // pass $address to the view as well
+        return view('boardingHouse.landing', compact('bh', 'address'));
     }
 
-    
- 
     /**
      * Update the specified resource in storage.
      */
@@ -131,5 +123,34 @@ class BoardingHouseController extends Controller
         $product->delete();
  
         return redirect()->route('admin/products')->with('success', 'product deleted successfully');
+    }
+
+    public function PropertyList() 
+    {
+       // Fetch the list of properties
+       $properties = PropertyList::all(); 
+
+       // Return the view with the form and properties data
+       return view('bordingHouse.property-list', compact('properties'));
+    }
+
+    public function storeProperty(Request $request)  
+    {
+        // Validate form data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        // Create a new property record in the database
+        Property::create([
+            'name' => $request->name,
+            'location' => $request->location,
+            'description' => $request->description,
+        ]);
+
+        // Redirect back to the property list with a success message
+        return redirect()->route('bordingHouse.property-list')->with('success', 'Property added successfully!');
     }
 }
