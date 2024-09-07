@@ -15,7 +15,7 @@
             <a href="{{ route('account.register') }}" class="{{ Request::routeIs('account.register') ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500' }}">Register</a>
             <a href="{{ route('account.login') }}" class="{{ Request::routeIs('account.login') ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500' }}">Login</a>
             <a href="" class="{{ Request::routeIs('contact') ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500' }}">Contact</a>
-            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Subscribe</button>
+            <a href="{{ route('property.list') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">List your Property</a>
         </nav>
     </div>
 </header>

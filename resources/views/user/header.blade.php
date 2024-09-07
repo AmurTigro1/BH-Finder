@@ -8,13 +8,12 @@
             <!-- User Dropdown -->
             <div class="relative">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    Hello, {{ Auth::guard('admin')->user()->name }}
-                    {{-- guard('admin')-> --}}
+                    Hello, {{ Auth::user()->name }}
                 </button>
                 
                 <ul class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
                     <li>
-                        <a href="{{ route('admin.logout') }}" class="block px-4 py-2 text-gray-700 hover:text-blue-500">
+                        <a href="{{ route('account.logout') }}" class="block px-4 py-2 text-gray-700 hover:text-blue-500">
                             Logout
                         </a>
                     </li>

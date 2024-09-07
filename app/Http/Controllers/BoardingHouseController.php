@@ -85,4 +85,6 @@ class BoardingHouseController extends Controller
         return view('boardingHouse.landing', compact('bh', 'address'));
     }
 
+
+    
 }

@@ -27,5 +27,11 @@ class RoomController extends Controller
 
 //     dd($room);
 // }
+public function showModal($id)
+{
+    $room = Room::findOrFail($id);
+    return view('room.room_modal', compact('room'));
+}
+
 
 }

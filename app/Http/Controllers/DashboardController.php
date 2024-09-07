@@ -4,9 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\BoardingHouse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+
+    public function authenticate() {
+        
+        if(Auth::id()) {
+            $role = Auth()->user()->role();
+            if($role == 'tenant') {
+                return view ('userView.homepage');
+            }
+            else if($role == 'admin') {
+                return view ('admin.homepage');
+            }
+            else {
+                return redirect()-back();
+            }
+        }
+    }
+
+
     public function index(Request $request)
     {
         $bh = BoardingHouse::orderBy('created_at', 'DESC')->get();

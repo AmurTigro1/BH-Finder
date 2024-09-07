@@ -16,7 +16,7 @@
 
 </head>
 <body class=" text-gray-300 font-poppins">
-    @include('header')
+    @include('user.header')
 
 
 

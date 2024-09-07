@@ -18,6 +18,7 @@ class LoginController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
+
         ]);
 
         if ($validator->passes()) {
@@ -44,7 +45,9 @@ class LoginController extends Controller
 
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed|min:5',
+            'password_confirmation' => 'required',
+            'name' => 'required|',
         ]);
 
         if ($validator->passes()) {
@@ -52,6 +55,7 @@ class LoginController extends Controller
            $user = new User();
            $user->name = $request->name;
            $user->email = $request->email;
+           $user->phone = $request->phone;
            $user->password = Hash::make($request->password);
            $user->role = 'tenant';
            $user->save();

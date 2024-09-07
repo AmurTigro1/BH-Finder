@@ -10,9 +10,10 @@
             <p class="text-lg mb-6 text-black">Find a variety of boarding houses that suit you very easily, forget all difficulties in finding a boarding house for you.</p>
             <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <form class="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto" action="{{ route('bh.home') }}" method="GET">
-                    <input type="text" placeholder="Search by location" class="w-full sm:w-auto border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" name="search" value="{{ request()->query('search') }}">
+                    <input type="text" placeholder="Search by location" class="w-full sm:w-auto border border-gray-700 rounded-md py-2 px-4 text-black focus:outline-none focus:ring-2 focus:ring-blue-500" name="search" value="{{ request()->query('search') }}">
                     <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full sm:w-auto">Search</button>
                 </form>
+                
                 <form class="flex items-center space-x-2 w-full sm:w-auto" action="{{ url()->current() }}" method="GET">
                     <label for="address" class="text-black">Filter by Address:</label>
                     <select name="address" id="address" class="w-full sm:w-auto border border-gray-700 text-black rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="this.form.submit()">

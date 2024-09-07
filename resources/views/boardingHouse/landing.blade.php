@@ -7,7 +7,7 @@
         <div class="container mx-auto">
             <div class="flex justify-start mb-8">
                 <form class="flex items-center space-x-4" action="{{ route('bh.all') }}" method="GET">
-                    <input type="text" placeholder="Search by location" class="bg-white border border-black rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" name="search" value="{{ request()->query('search') }}">
+                    <input type="text" placeholder="Search by location" class="bg-white border text-black border-black rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" name="search" value="{{ request()->query('search') }}">
                     <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Search</button>
                 </form>
             </div>
