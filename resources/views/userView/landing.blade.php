@@ -9,7 +9,8 @@
             <h1 class="text-5xl md:text-6xl font-bold mb-4 text-black">Discover Most Suitable Boarding House</h1>
             <p class="text-lg mb-6 text-black">Find a variety of boarding houses that suit you very easily, forget all difficulties in finding a boarding house for you.</p>
             <div class="flex flex-col md:flex-row justify-center md:justify-start items-center space-y-4 md:space-y-0 md:space-x-4">
-                <form class="flex items-center space-x-4" action="{{ route('bh.home') }}" method="GET">
+                {{-- {{ route('user-bh.home') }} --}}
+                <form class="flex items-center space-x-4" action="" method="GET">
                     <input type="text" placeholder="Search by location" class=" border border-gray-700 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" name="search" value="{{ request()->query('search') }}">
                     <button class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4 rounded">Search</button>
                 </form>
@@ -51,7 +52,7 @@
     <div class="container mx-auto">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-3xl font-bold text-black">Popular Residences</h2>
-            <a href="{{ route('bh.all') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">View All</a>
+            <a href="{{ route('user-bh.all') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">View All</a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @forelse ($bh as $bh)
@@ -61,7 +62,7 @@
                         <h3 class="text-2xl font-bold text-black mb-2">₱{{$bh->monthly}}</h3>
                         <h4 class="text-xl font-bold text-black mb-2">{{$bh->name}}</h4>
                         <p class="text-black">{{$bh->address}}</p>
-                        <a href="{{ route('bh.show', $bh->id) }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 block text-center">Visit</a>
+                        <a href="{{ route('user-bh.show', $bh->id) }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 block text-center">Visit</a>
                     </div>
                 </div>
             @empty
