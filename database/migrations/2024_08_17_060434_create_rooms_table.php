@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('image', 255);
-            $table->string('type');
-            $table->integer('occupancy');
-            $table->decimal('price', 10, 2);
-            $table->foreignId('boarding_house_id')->constrained()->onDelete('cascade');
+            $table->string('image', 255)->nullable();
+            $table->string('type')->nullable();
+            $table->string('wifi')->default('yes')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('occupancy')->nullable();
+            $table->decimal('price', 10, 2)->nullable();
+            // $table->foreignId('boarding_house_id')->constrained()->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

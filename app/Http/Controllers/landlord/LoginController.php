@@ -40,5 +40,11 @@ class LoginController extends Controller
             ->withErrors($validator);
         }
 
+    } 
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('landlord.login');
+
     }
 }

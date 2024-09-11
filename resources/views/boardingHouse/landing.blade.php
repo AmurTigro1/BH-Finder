@@ -17,7 +17,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @forelse ($bh as $residence)
                     <div class="bg-white rounded-md overflow-hidden">
-                        <img src="{{ $residence->image }}" alt="House" class="w-full h-48 object-cover">
+                      <figure><img src="boardingHouse/{{ $residence->image }}" alt="House" class="w-full h-48 object-cover"></figure> 
                         <div class="p-4">
                             <h3 class="text-2xl font-bold text-black mb-2">₱{{ $residence->monthly }}</h3>
                             <h4 class="text-xl font-bold text-black mb-2">{{ $residence->name }}</h4>

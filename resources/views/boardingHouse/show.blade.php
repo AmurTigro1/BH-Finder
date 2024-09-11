@@ -30,7 +30,7 @@
                 <!-- Image -->
                     <div class="flex items-center bg-white rounded-lg shadow-md overflow-hidden">
                         <!-- Image -->
-                        <img src="{{ $bh->image }}" alt="{{ $bh->name }}" class="w-[200px] md:w-[300px] h-auto object-contain border-r-2 border-gray-200">
+                        <figure><img src="{{ $bh->image }}" alt="Boarding House" class="w-full h-48 object-cover"></figure> 
                         
                         <!-- Content -->
                         <div class="p-4">

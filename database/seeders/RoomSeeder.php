@@ -19,7 +19,9 @@ class RoomSeeder extends Seeder
                 'occupancy' => 2,
                 'price' => 900,
                 'type' => "Single",
-                'boarding_house_id' => 1,
+                'wifi' => "yes",
+                'description' => "adsadiadnasdjsad",
+        
             ],
             
             [
@@ -27,21 +29,27 @@ class RoomSeeder extends Seeder
                 'occupancy' => 4,
                 'price' => 1000,
                 'type' => "Double",
-                'boarding_house_id' => 2,
+                'wifi' => "no",
+                'description' => "adsadiadnasdjsad",
+              
             ],
             [
                 'image' => 'https://i.pinimg.com/236x/64/77/7a/64777a0c34c214934226a6da6b857749.jpg',
                 'occupancy' => 2,
                 'price' => 800,
                 'type' => "Double",
-                'boarding_house_id' => 3,
+                'wifi' => "yes",
+                'description' => "adsadiadnasdjsad",
+            
             ],
             [
                 'image' => 'https://i.pinimg.com/236x/e7/be/0e/e7be0e09f4bca606090a04f021f41fec.jpg',
                 'occupancy' => 2,
                 'price' => 900,
                 'type' => "Single",
-                'boarding_house_id' => 4,
+                'wifi' => "no",
+                'description' => "adsadiadnasdjsad",
+             
             ],
         ];
 

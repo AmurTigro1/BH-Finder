@@ -18,9 +18,10 @@
                     <label for="address" class="text-black">Filter by Address:</label>
                     <select name="address" id="address" class="w-full sm:w-auto border border-gray-700 text-black rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="this.form.submit()">
                         <option value="">All</option>
-                        <option value="Pob. Centro, Clarin, Bohol" {{ request('address') == 'Pob. Centro, Clarin, Bohol' ? 'selected' : '' }}>Clarin</option>
+                        <option value="Clarin, Bohol" {{ request('address') == 'Clarin, Bohol' ? 'selected' : '' }}>Clarin</option>
                         <option value="Tubigon, Bohol" {{ request('address') == 'Tubigon, Bohol' ? 'selected' : '' }}>Tubigon</option>
-                        <option value="Inabanga" {{ request('address') == 'Inabanga' ? 'selected' : '' }}>Inabanga</option>
+                        <option value="Inabanga, Bohol" {{ request('address') == 'Inabanga, Bohol' ? 'selected' : '' }}>Inabanga</option>
+                        <option value="Tagbilaran City" {{ request('address') == 'Tagbilaran City' ? 'selected' : '' }}>Tagbilaran</option>
                     </select>
                 </form>
             </div>
@@ -43,7 +44,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse ($bh as $bh)
                 <div class="bg-white rounded-md overflow-hidden shadow-lg">
-                    <img src="{{$bh->image}}" alt="House" class="w-full h-48 object-cover">
+                    <figure><img src="boardingHouse/{{ $bh->image }}" alt="House" class="w-full h-48 object-cover"></figure> 
                     <div class="p-4">
                         <h3 class="text-xl sm:text-2xl font-bold text-black mb-2">₱{{$bh->monthly}}</h3>
                         <h4 class="text-lg sm:text-xl font-bold text-black mb-2">{{$bh->name}}</h4>

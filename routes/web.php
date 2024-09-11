@@ -56,9 +56,18 @@ Route::group(['prefix' => 'admin'], function(){
         
      });
  });
+
+ //LandLord
  Route::get('/landLord/login', [LandLordLoginController::class,'index'])->name('landlord.login');
  Route::get('/landLord/dashboard', [LandLordDashboardController::class,'index'])->name('landlord.dashboard');
  Route::post('/landlord/authenticate', [LandLordLoginController::class,'authenticate'])->name('landlord.authenticate');
+ //LandLord Add room
+ Route::get('/add_room', [LandLordDashboardController::class,'add_room'])->name('landlord.add_room');
+ Route::post('/create_room', [LandLordDashboardController::class,'create_room'])->name('landlord.create_room');
+ Route::get('/logout', [LandLordLoginController::class,'logout'])->name('landlord.logout');
+ //Add Bh
+Route::get('/add_boardingHouse', [BoardingHouseController::class,'add_bh'])->name('landlord.add_bh');
+Route::post('/create_boardingHouse', [BoardingHouseController::class,'create_bh'])->name('landlord.create_bh');
 
 
 

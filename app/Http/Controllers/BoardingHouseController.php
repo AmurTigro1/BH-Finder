@@ -85,6 +85,29 @@ class BoardingHouseController extends Controller
         return view('boardingHouse.landing', compact('bh', 'address'));
     }
 
+    public function add_bh() {
+        // $boarding_house_id = BoardingHouse::all(); 
+ 
+         return view ('landlord.add_boardingHouse');
+     }
 
+    public function create_bh(Request $request) {
+        $data = new BoardingHouse();
+        $data->name = $request->name;
+        $data->image = $request->image;
+        $data->monthly = $request->price;
+        $data->address = $request->address;
+        $image = $request->image;
+
+        if($image) {
+            $imagename = time() . '. ' .$image->getClientOriginalExtension();
+            $request->image->move('boardingHouse', $imagename);
+            $data->image = $imagename;
+        }
+
+        $data->save();
+
+        return redirect()->back();
+    }
     
 }

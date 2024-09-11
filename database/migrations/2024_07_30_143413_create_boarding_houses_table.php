@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('boarding_houses', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('name');
-            $table->string('address');
-            $table->string('monthly');
+            $table->string('image')->nullable();
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->string('monthly')->nullable();
             $table->timestamps();
         });
     }
